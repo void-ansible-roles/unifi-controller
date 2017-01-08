@@ -29,7 +29,7 @@
 
 - name: Get the Unifi Comntroller
   get_url:
-    url: http://dl.ubnt.com/unifi/{{ unifi_version }}/UniFi.unix.zip
+    url: https://dl.ubnt.com/unifi/{{ unifi_version }}/UniFi.unix.zip
     dest: /opt/installfiles/unifi.zip
 
 - name: Expand the Unifi Archive
@@ -49,7 +49,7 @@
 
 - name: Fix the UniFi-mongodb bug
   lineinfile:
-    line: "unifi.db.extraargs=--wiredTigerJournalCompressor\=none --wiredTigerCollectionBlockCompressor\=none"
+    line: "unifi.db.extraargs=--wiredTigerJournalCompressor=none --wiredTigerCollectionBlockCompressor=none"
     dest: /opt/UniFi/data/system.properties
     state: present
     create: yes
